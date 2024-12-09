@@ -1876,6 +1876,54 @@ static struct device_info boards[] = {
 		.first_sysupgrade_partition = "os-image@1",
 		.last_sysupgrade_partition = "file-system@1"
 	},
+	{
+		.id = "DECO-M9Plus",
+		.vendor = "",
+		.support_list =
+		    "SupportList:\n"
+            "{product_name:M9Plus,product_ver:2.0.0,special_id:55530000}\n"
+            "{product_name:M9Plus,product_ver:2.0.0,special_id:45550000}\n"
+            "{product_name:M9Plus,product_ver:2.0.0,special_id:41550000}\n"
+            "{product_name:M9Plus,product_ver:2.0.0,special_id:4A500000}\n"
+            "{product_name:M9Plus,product_ver:2.0.0,special_id:54570000}\n"
+            "{product_name:M9Plus,product_ver:2.0.0,special_id:43410000}\n"
+            "{product_name:M9Plus,product_ver:2.2.0,special_id:55530000}\n"
+            "{product_name:M9Plus,product_ver:2.2.0,special_id:45550000}\n"
+            "{product_name:M9Plus,product_ver:2.2.0,special_id:41550000}\n"
+            "{product_name:M9Plus,product_ver:2.2.0,special_id:4A500000}\n"
+            "{product_name:M9Plus,product_ver:2.2.0,special_id:54570000}\n"
+            "{product_name:M9Plus,product_ver:2.2.0,special_id:43410000}\n",
+		.part_trail = 0x00,
+		.soft_ver = SOFT_VER_DEFAULT,
+		.partitions = {
+			{"0:SBL1",          0x00000000, 0x00100000},
+			{"0:MIBIB",         0x00100000, 0x00100000},
+			{"0:BOOTCONFIG",    0x00200000, 0x00100000},
+			{"0:QSEE",          0x00300000, 0x00100000},
+			{"0:CDT",           0x00400000, 0x00080000},
+			{"0:BOOTCONFIG1",   0x00480000, 0x00080000},
+			{"0:APPSBLENV",     0x00500000, 0x00180000},
+			{"0:APPSBL",        0x00680000, 0x00200000},
+			{"0:ART",           0x00880000, 0x00080000},
+			{"rootfs",          0x00900000, 0x02d00000},
+			{"rootfs_1",        0x03600000, 0x02d00000},
+			{"factory_data",    0x06300000, 0x00900000},
+			{"runtime_data",    0x06c00000, 0x01100000},
+			{"kernel",          0x07d00000, 0x00345000},
+			{"ubi_rootfs",      0x08045000, 0x0118f000},
+			{"rootfs_data",     0x091d4000, 0x015eb000},
+			{"ubi_factory_data",0x0a7c9000, 0x005d0000},
+			{"ubi_runtime_data",0x0adb9000, 0x00d90000},
+			{NULL, 0, 0}
+		},
+
+        .partition_names.partition_table = "0:MIBIB",
+        .partition_names.os_image = "rootfs",
+        .partition_names.file_system = "rootfs_1",
+        
+        .first_sysupgrade_partition = "kernel",
+        .last_sysupgrade_partition = "rootfs"
+	},
 
 	/** Firmware layout for the Deco S4 v2 */
 	{
