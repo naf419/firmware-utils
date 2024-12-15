@@ -1877,7 +1877,7 @@ static struct device_info boards[] = {
 		.last_sysupgrade_partition = "file-system@1"
 	},
 	{
-		.id = "DECO-M9Plus",
+		.id = "DECO-M9PLUS",
 		.vendor = "",
 		.support_list =
 		    "SupportList:\n"
@@ -1909,20 +1909,11 @@ static struct device_info boards[] = {
 			{"rootfs_1",        0x03600000, 0x02d00000},
 			{"factory_data",    0x06300000, 0x00900000},
 			{"runtime_data",    0x06c00000, 0x01100000},
-			{"kernel",          0x07d00000, 0x00345000},
-			{"ubi_rootfs",      0x08045000, 0x0118f000},
-			{"rootfs_data",     0x091d4000, 0x015eb000},
-			{"ubi_factory_data",0x0a7c9000, 0x005d0000},
-			{"ubi_runtime_data",0x0adb9000, 0x00d90000},
 			{NULL, 0, 0}
 		},
 
-        .partition_names.partition_table = "0:MIBIB",
         .partition_names.os_image = "rootfs",
-        .partition_names.file_system = "rootfs_1",
-        
-        .first_sysupgrade_partition = "kernel",
-        .last_sysupgrade_partition = "rootfs"
+        .partition_names.file_system = "rootfs_1"
 	},
 
 	/** Firmware layout for the Deco S4 v2 */
