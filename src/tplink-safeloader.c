@@ -1876,23 +1876,25 @@ static struct device_info boards[] = {
 		.first_sysupgrade_partition = "os-image@1",
 		.last_sysupgrade_partition = "file-system@1"
 	},
+
+	/** Firmware layout for the Deco M9+ v??? */
 	{
 		.id = "DECO-M9PLUS",
 		.vendor = "",
 		.support_list =
-		    "SupportList:\n"
-            "{product_name:M9Plus,product_ver:2.0.0,special_id:55530000}\n"
-            "{product_name:M9Plus,product_ver:2.0.0,special_id:45550000}\n"
-            "{product_name:M9Plus,product_ver:2.0.0,special_id:41550000}\n"
-            "{product_name:M9Plus,product_ver:2.0.0,special_id:4A500000}\n"
-            "{product_name:M9Plus,product_ver:2.0.0,special_id:54570000}\n"
-            "{product_name:M9Plus,product_ver:2.0.0,special_id:43410000}\n"
-            "{product_name:M9Plus,product_ver:2.2.0,special_id:55530000}\n"
-            "{product_name:M9Plus,product_ver:2.2.0,special_id:45550000}\n"
-            "{product_name:M9Plus,product_ver:2.2.0,special_id:41550000}\n"
-            "{product_name:M9Plus,product_ver:2.2.0,special_id:4A500000}\n"
-            "{product_name:M9Plus,product_ver:2.2.0,special_id:54570000}\n"
-            "{product_name:M9Plus,product_ver:2.2.0,special_id:43410000}\n",
+			"SupportList:\n"
+			"{product_name:M9Plus,product_ver:2.0.0,special_id:55530000}\n"
+			"{product_name:M9Plus,product_ver:2.0.0,special_id:45550000}\n"
+			"{product_name:M9Plus,product_ver:2.0.0,special_id:41550000}\n"
+			"{product_name:M9Plus,product_ver:2.0.0,special_id:4A500000}\n"
+			"{product_name:M9Plus,product_ver:2.0.0,special_id:54570000}\n"
+			"{product_name:M9Plus,product_ver:2.0.0,special_id:43410000}\n"
+			"{product_name:M9Plus,product_ver:2.2.0,special_id:55530000}\n"
+			"{product_name:M9Plus,product_ver:2.2.0,special_id:45550000}\n"
+			"{product_name:M9Plus,product_ver:2.2.0,special_id:41550000}\n"
+			"{product_name:M9Plus,product_ver:2.2.0,special_id:4A500000}\n"
+			"{product_name:M9Plus,product_ver:2.2.0,special_id:54570000}\n"
+			"{product_name:M9Plus,product_ver:2.2.0,special_id:43410000}\n",
 		.part_trail = 0x00,
 		.soft_ver = SOFT_VER_DEFAULT,
 		.partitions = {
@@ -1906,14 +1908,14 @@ static struct device_info boards[] = {
 			{"0:APPSBL",        0x00680000, 0x00200000},
 			{"0:ART",           0x00880000, 0x00080000},
 			{"rootfs",          0x00900000, 0x02d00000},
-			{"rootfs_1",        0x03600000, 0x02d00000},
+			{"firmware",        0x03600000, 0x02d00000}, /* stock calls this rootfs_1 */
 			{"factory_data",    0x06300000, 0x00900000},
 			{"runtime_data",    0x06c00000, 0x01100000},
 			{NULL, 0, 0}
 		},
 
-        .partition_names.os_image = "rootfs",
-        .partition_names.file_system = "rootfs_1"
+		.first_sysupgrade_partition = "os-image",
+		.last_sysupgrade_partition = "file-system",
 	},
 
 	/** Firmware layout for the Deco S4 v2 */
